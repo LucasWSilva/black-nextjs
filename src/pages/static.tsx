@@ -8,12 +8,13 @@ interface ApiResponse {
 }
  
 export const getStaticProps: GetStaticProps = async () => {
-    const staticData = await fetch(`${process.env.NEXT_PUBLIC_APIURL}/api/hello`).then(res => res.json())
+    const staticData = await fetch(`${process.env.NEXT_PUBLIC_APIURL}/api/hello`)
 
     return {
         props: {
             staticData
-        }
+        },
+        revalidate: 10
     }
 }
 
@@ -41,10 +42,10 @@ const Static: NextPage = (props: {
             <Row>
                 <Col>
                     <h3>
-                        Gerado estaticamente durante o building:
+                        Gerado estaticamente durante o building
                     </h3>
                     <h2>
-                        {props.staticData?.timestamp.toString()}
+                        {props.staticData.times}
                     </h2>
                 </Col>
                 <Col>
