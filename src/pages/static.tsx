@@ -45,7 +45,7 @@ const Static: NextPage = (props: {
                         Gerado estaticamente durante o building
                     </h3>
                     <h2>
-                        {props.staticData.times}
+                        {props.staticData?.timestamp.toString()}
                     </h2>
                 </Col>
                 <Col>
